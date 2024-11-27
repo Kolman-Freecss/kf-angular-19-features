@@ -1,0 +1,18 @@
+<div>
+  <h1>Bienvenido a la página principal</h1>
+  <button (click)="changeUserName()">Cambiar Nombre de Usuario</button>
+  <ng-container *ngIf="user()">
+    <p>Nombre de usuario: {{ user().firstName }} {{ user().lastName }}</p>
+  </ng-container>
+
+  <ng-container *ngIf="data() as data; else loading">
+    <p>Datos cargados: {{ data }}</p>
+  </ng-container>
+  <ng-template #loading>
+    <p>Cargando datos...</p>
+  </ng-template>
+
+  <ng-container *ngIf="error() as error">
+    <p>Error: {{ error }}</p>
+  </ng-container>
+</div>
